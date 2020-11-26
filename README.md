@@ -8,8 +8,14 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2020/21
 
 ## Tematika
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
-Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+Poiskala sem podatke o povprečnih mesečnih plačah po dejavnostih v Sloveniji med leti 2014 in 2018. Primerjala bom povprečne letne plače v naslednjih panogah: kmetijstvo in lov,
+gozdarstvo, ribištvo, rudarstvo, predelovalne dejavnosti, oskrba z električnim plinom in paro, oskrba z vodo, ravnanje z odplakami in odpadki, saniranje okolja, gradbeništvo,
+trgovina, vzdrževanje in popravila motornih vozil, promet in skladiščenje, gostinstvo, informacijske in komunikacijske dejavnosti, finančne in zavarovalniške dejavnosti,
+poslovanje z neprimičninami, strokovne, znanstvene in tehnične dejavnosti, druge poslovne dejavnosti, dejavnosti javne uprave in obrambe, izobraževanje, zdravstvo in socialno
+varstvo, kulturne, razvedrilne in rekreacijske dejavnosti. Analizirala bom višino plač v prej naštetih dejavnostih od leta 2014 do 2018. Dejavnosti je okrog 20, te so razdeljene
+vsaka na še približno tri podpanoge, te pa na še nekaj podpodpanog. Tiste bolj obsežne bom analizirala podrobneje oziroma bom o njih povedala več na predstavitvi.
+
+Tabela 1: Vir (SURS): https://pxweb.stat.si/SiStatDb/pxweb/sl/10_Dem_soc/10_Dem_soc__07_trg_dela__10_place__01_07010_place/0701021S.px/, https://pxweb.stat.si/SiStatDb/pxweb/sl/10_Dem_soc/10_Dem_soc__07_trg_dela__10_place__01_07010_place/0701011S.px/
 
 ## Program
 
