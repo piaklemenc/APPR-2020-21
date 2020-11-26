@@ -8,14 +8,20 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2020/21
 
 ## Tematika
 
-Poiskala sem podatke o  mesečnih plačah po panogah v Sloveniji od leta 2014 do 2019. Primerjala bom mesečne plače v naslednjih panogah: kmetijstvo in lov, gozdarstvo, ribištvo, rudarstvo, predelovalne dejavnosti, oskrba z električnim plinom in paro, oskrba z vodo, ravnanje z odplakami in odpadki, saniranje okolja, gradbeništvo, trgovina, vzdrževanje in popravila motornih vozil, promet in skladiščenje, gostinstvo, informacijske in komunikacijske dejavnosti, finančne in zavarovalniške dejavnosti, poslovanje z neprimičninami, strokovne, znanstvene in tehnične dejavnosti, druge poslovne dejavnosti, dejavnosti javne uprave in obrambe, izobraževanje, zdravstvo in socialno varstvo, kulturne, razvedrilne in rekreacijske dejavnosti. Te panoge skupaj vsebujejo približno 1600 panog, na katere se bom podrobneje osredotočila.
-In sicer, zanima me:
-- letna plača
-- pri katerih panogah so letne plače najvišje in pri katerih najnižje
-- v katerem mesecu pri posamezni panogi je plača najvišja oziroma najnižja
-- kako se plača posamezne panoge spreminja z leti
+Poiskala sem podatke o  mesečnih plačah po panogah v Sloveniji od leta 2014 do 2019. Primerjala bom mesečne plače v naslednjih panogah: kmetijstvo in lov, gozdarstvo, ribištvo,
+rudarstvo, predelovalne dejavnosti, oskrba z električnim plinom in paro, oskrba z vodo, ravnanje z odplakami in odpadki, saniranje okolja, gradbeništvo, trgovina, vzdrževanje in
+popravila motornih vozil, promet in skladiščenje, gostinstvo, informacijske in komunikacijske dejavnosti, finančne in zavarovalniške dejavnosti, poslovanje z neprimičninami,
+strokovne, znanstvene in tehnične dejavnosti, druge poslovne dejavnosti, dejavnosti javne uprave in obrambe, izobraževanje, zdravstvo in socialno varstvo, kulturne, razvedrilne
+in rekreacijske dejavnosti. Te panoge skupaj vsebujejo približno 1600 podpanog, na katere se bom podrobneje osredotočila.
 
-Tabela 1: Vir (SURS): https://pxweb.stat.si/SiStatDb/pxweb/sl/10_Dem_soc/10_Dem_soc__07_trg_dela__10_place__01_07010_place/0701021S.px/, https://pxweb.stat.si/SiStatDb/pxweb/sl/10_Dem_soc/10_Dem_soc__07_trg_dela__10_place__01_07010_place/0701011S.px/
+Analizirala bom naslednja vprašanja::
+- Kolikšna je letna plača posamezne panoge?
+- Pri katerih panogah so letne plače najvišje in pri katerih najnižje?
+- V katerem mesecu pri posamezni panogi je plača najvišja oziroma najnižja?
+- Kako se plače spreminjajo z leti?
+...
+
+Tabela 1: Vir (SURS): https://pxweb.stat.si/SiStatData/pxweb/sl/Data/-/0701011S.px
 
 ## Program
 
