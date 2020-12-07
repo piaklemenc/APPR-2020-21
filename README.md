@@ -8,20 +8,14 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2020/21
 
 ## Tematika
 
-Poiskala sem podatke o  mesečnih plačah po panogah v Sloveniji od leta 2014 do 2019. Primerjala bom mesečne plače v naslednjih panogah: kmetijstvo in lov, gozdarstvo, ribištvo,
-rudarstvo, predelovalne dejavnosti, oskrba z električnim plinom in paro, oskrba z vodo, ravnanje z odplakami in odpadki, saniranje okolja, gradbeništvo, trgovina, vzdrževanje in
-popravila motornih vozil, promet in skladiščenje, gostinstvo, informacijske in komunikacijske dejavnosti, finančne in zavarovalniške dejavnosti, poslovanje z neprimičninami,
-strokovne, znanstvene in tehnične dejavnosti, druge poslovne dejavnosti, dejavnosti javne uprave in obrambe, izobraževanje, zdravstvo in socialno varstvo, kulturne, razvedrilne
-in rekreacijske dejavnosti. Te panoge skupaj vsebujejo približno 1600 podpanog, na katere se bom podrobneje osredotočila.
-
+Poiskala sem podatke o  mesečnih plačah po SKD dejavnostih v Sloveniji po regijah od leta 2014 do 2019. Primerjala bom mesečne plače v približno dvajsetih različnih panogah.
 Analizirala bom naslednja vprašanja::
-- Kolikšna je letna plača posamezne panoge?
-- Pri katerih panogah so letne plače najvišje in pri katerih najnižje?
-- V katerem mesecu pri posamezni panogi je plača najvišja oziroma najnižja?
+- Kolikšna je letna plača posamezne panoge v posamezni regiji?
+- Pri katerih panogah in v katerih regijah so letne plače najvišje in pri katerih najnižje?
 - Kako se plače spreminjajo z leti?
 ...
 
-Tabela 1: Vir (SURS): https://pxweb.stat.si/SiStatData/pxweb/sl/Data/-/0701011S.px
+Tabela 1: Vir (SURS): https://pxweb.stat.si/SiStat/sl/Podrocja/Index/98/place-in-stroski-dela
 
 ## Program
 
