@@ -11,4 +11,5 @@ library(rgdal)
 library(tibble)
 
 uvozi.place <- read_csv('podatki/place.csv', locale=locale(encoding="Windows-1250"), na=c('n','z','-','/'))
-colnames(uvozi.place) = c('STATISTIČNA.REGIJA', 'SKD.DEJAVNOST', 'MESEC', 'NETO.MESEČNA.PLAČA')
+colnames(uvozi.place) = c('STATISTICNA.REGIJA', 'SKD.DEJAVNOST', 'LETO.MESEC', 'NETO.MESECNA.PLACA')
+
