@@ -24,7 +24,6 @@ uvozi.place2 <- uvozi.place %>%
   group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST) %>%
   summarize(MAX.LETNA.PLACA = max(POVPRECNA.LETNA.PLACA, na.rm=TRUE)) 
 
-uvozi.place$MAx.LETNA.PLACA <- uvozi.place2[3]
 
 
 
