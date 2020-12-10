@@ -11,7 +11,7 @@ library(rgdal)
 library(tibble)
 library(stringr)
 
-uvozi.place <- read_csv('podatki/place.csv', locale=locale(encoding="Windows-1250"), na=c('n','z','-','/')) %>%
+uvozi.place <- read_csv('podatki/place.csv', locale=locale(encoding="Windows-1250"), na=c('n','z','-','/','-Inf')) %>%
   separate(MESEC,  into = c('leto', 'mesec'), sep = 'M')
   
 colnames(uvozi.place) = c('STATISTICNA.REGIJA', 'SKD.DEJAVNOST', 'LETO', 'MESEC', 'NETO.MESECNA.PLACA')
@@ -19,6 +19,16 @@ colnames(uvozi.place) = c('STATISTICNA.REGIJA', 'SKD.DEJAVNOST', 'LETO', 'MESEC'
 uvozi.place <- uvozi.place %>%
   group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST, LETO) %>%
   summarize(POVPRECNA.LETNA.PLACA = mean(NETO.MESECNA.PLACA, na.rm=TRUE))
+
+uvozi.place2 <- uvozi.place %>%
+  group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST) %>%
+  summarize(MAX.LETNA.PLACA = max(POVPRECNA.LETNA.PLACA, na.rm=TRUE)) 
+
+uvozi.place$MAx.LETNA.PLACA <- uvozi.place2[3]
+
+
+
+
 
 
 
