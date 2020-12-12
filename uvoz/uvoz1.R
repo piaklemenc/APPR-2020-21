@@ -10,6 +10,13 @@ library(rgeos)
 library(rgdal)
 library(tibble)
 library(stringr)
+library(tmap)
+library(knitr)
+library(rmarkdown)
+library(shiny)
+library(DT)
+library(digest)
+library(mosaic)
 
 uvozi.place <- read_csv('podatki/place.csv', locale=locale(encoding="Windows-1250"), na=c('n','z','-','/','-Inf')) %>%
   separate(MESEC,  into = c('leto', 'mesec'), sep = 'M')
@@ -25,6 +32,9 @@ uvozi.place2 <- uvozi.place %>%
   summarize(MAX.LETNA.PLACA = max(POVPRECNA.LETNA.PLACA, na.rm=TRUE)) 
 
 
+source("https://raw.githubusercontent.com/jaanos/APPR-2020-21/master/lib/uvozi.zemljevid.r")
+slo <- uvozi.zemljevid("https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_SVN_shp.zip", "gadm36_SVN_1", encoding="UTF-8")
+tm_shape(slo) + tm_polygons("NAME_1")
 
 
 
