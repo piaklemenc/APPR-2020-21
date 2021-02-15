@@ -1,19 +1,10 @@
 
-
-
-
+#uvoz podatkov
 uvozi.place <- read_csv('podatki/place.csv', locale=locale(encoding="Windows-1250"),
                         na=c('n','z','-','/','-Inf', 'Inf'), skip=1,
                         col_names=c('STATISTICNA.REGIJA', 'SKD.DEJAVNOST',
                                     'MESEC', 'NETO.MESECNA.PLACA')) %>%
   mutate(MESEC=parse_date(MESEC, "%YM%m"))
-#%>%
-#  separate(MESEC,  into = c('leto', 'mesec'), sep = 'M')
-
-#colnames(uvozi.place) = c('STATISTICNA.REGIJA', 'SKD.DEJAVNOST', 'LETO', 'MESEC', 'NETO.MESECNA.PLACA')
-#uvozi.place$LETO <- as.integer(uvozi.place$LETO)
-#uvozi.place$NETO.MESECNA.PLACA <- as.numeric(uvozi.place$NETO.MESECNA.PLACA)
-
 
 #povprecna letna placa v vsaki regiji za vsako dejavnost
 letne.place <- uvozi.place %>%
@@ -33,10 +24,10 @@ place.min <- uvozi.place %>%
 
 
 #max povprecnih letnih plac posamezne regije
-place.gorenjska.max <- place.max %>% filter(STATISTICNA.REGIJA == 'Gorenjska') %>%
+maxplace.gorenjska <- place.max %>% filter(STATISTICNA.REGIJA == 'Gorenjska') %>%
   arrange(MAX.LETNA.PLACA)  
   
-place.goriska.max <- place.max %>% filter(STATISTICNA.REGIJA == 'Goriška') %>%
+maxplace.goriska <- place.max %>% filter(STATISTICNA.REGIJA == 'Goriška') %>%
   arrange(MAX.LETNA.PLACA)
 
 #zemljevid regij
