@@ -12,15 +12,20 @@ letne.place <- uvozi.place %>%
   summarise(LETNA.PLACA=sum(NETO.MESECNA.PLACA)) %>%
   summarize(POVPRECNA.LETNA.PLACA = mean(LETNA.PLACA, na.rm=TRUE))
 
+#povprečna plača v regiji
+place.regije <- letne.place %>%
+  group_by(STATISTICNA.REGIJA) %>%
+  summarise(POVPRECNA.PLACA = mean(POVPRECNA.LETNA.PLACA, na.rm=TRUE))
+
 #max povprecna letna placa v vsaki regiji za vsako dejavnost
-place.max <- uvozi.place %>%
+place.max <- letne.place %>%
   group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST) %>%
   summarize(MAX.LETNA.PLACA = max(POVPRECNA.LETNA.PLACA, na.rm=TRUE))
 
 #min povprecna letna placa v vsaki regiji za vsako dejavnost
-place.min <- uvozi.place %>%
+place.min <- letne.place %>%
   group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST) %>%
-  summarize(MIN.LETNA.PLACA = min(POVPRECNA.LETNA.PLACA, na.rm=TRUE)) %>%
+  summarize(MIN.LETNA.PLACA = min(POVPRECNA.LETNA.PLACA, na.rm=TRUE))
 
 
 #max povprecnih letnih plac posamezne regije
@@ -31,15 +36,17 @@ maxplace.goriska <- place.max %>% filter(STATISTICNA.REGIJA == 'Goriška') %>%
   arrange(MAX.LETNA.PLACA)
 
 #zemljevid regij
+place.regije$STATISTICNA.REGIJA[10] <- "Notranjsko-kraška"
+place.regije$STATISTICNA.REGIJA[9] <- "Spodnjeposavska"
 
 slo <- uvozi.zemljevid("https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_SVN_shp.zip", "gadm36_SVN_1", encoding="UTF-8")
-tm_shape(slo) + tm_polygons("NAME_1")
-
+slo1 <- tm_shape(merge(slo, place.regije,  by.x="NAME_1", by.y="STATISTICNA.REGIJA", label=paste0(NAME_1, "\n", POVPRECNA.PLACA))) + tm_polygons("POVPRECNA.PLACA") + 
+  tm_text('NAME_1', size = 0.7)
 
 #risanje
 g1 <- ggplot(place.max) + aes(x=SKD.DEJAVNOST , y=MAX.LETNA.PLACA ) + geom_point()
 
-g2 <- ggplot(place.gorenjska.max) + aes(x=substr(SKD.DEJAVNOST, 1, 1), y=MAX.LETNA.PLACA) + geom_col() +
+g2 <- ggplot(maxplace.gorenjska) + aes(x=substr(SKD.DEJAVNOST, 1, 1), y=MAX.LETNA.PLACA) + geom_col() +
   xlab("Dejavnost")
 
 
