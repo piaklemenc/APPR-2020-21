@@ -17,15 +17,16 @@ place.regije <- letne.place %>%
   group_by(STATISTICNA.REGIJA) %>%
   summarise(POVPRECNA.PLACA = mean(POVPRECNA.LETNA.PLACA, na.rm=TRUE))
 
-#max povprecna letna placa v vsaki regiji za vsako dejavnost
+#max in min povprecna letna placa v vsaki regiji za vsako dejavnost
 place.max <- letne.place %>%
   group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST) %>%
   summarize(MAX.LETNA.PLACA = max(POVPRECNA.LETNA.PLACA, na.rm=TRUE))
 
-#min povprecna letna placa v vsaki regiji za vsako dejavnost
 place.min <- letne.place %>%
   group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST) %>%
   summarize(MIN.LETNA.PLACA = min(POVPRECNA.LETNA.PLACA, na.rm=TRUE))
+
+maxmin.place <- inner_join(place.max, place.min)
 
 
 #place na gorenjskem
@@ -33,9 +34,6 @@ maxplace.gorenjska <- place.max %>% filter(STATISTICNA.REGIJA == 'Gorenjska') %>
   arrange(MAX.LETNA.PLACA)  
   
 place.gorenjska <- uvozi.place %>%filter(STATISTICNA.REGIJA == 'Gorenjska')
-
-
-
 
 
 

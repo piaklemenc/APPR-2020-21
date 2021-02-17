@@ -62,3 +62,13 @@ g7 <- ggplot(data=place.gorenjska, aes(x=MESEC, y=NETO.MESECNA.PLACA, col=SKD.DE
   geom_line() + facet_wrap(~SKD.DEJAVNOST) +
   theme(axis.text.x = element_text(size = 6, angle = 90, vjust = 0.5, hjust=1),legend.position="none" ) +
   xlab("LETO") + ylab("NETO PLAČA")
+
+#maksimalne in minimalne place dejavnosti v posamezni regiji
+g8 <- ggplot(maxmin.place) + aes(x=substr(SKD.DEJAVNOST,1,1), y=MAX.LETNA.PLACA, fill=SKD.DEJAVNOST) + geom_col() +
+  facet_wrap(~ STATISTICNA.REGIJA) + xlab('DEJAVNOST')
+
+g9 <- ggplot(maxmin.place) + aes(x=substr(SKD.DEJAVNOST,1,1), y=MIN.LETNA.PLACA, fill=SKD.DEJAVNOST) + geom_col() +
+  facet_wrap(~ STATISTICNA.REGIJA) + xlab('DEJAVNOST')
+
+
+
