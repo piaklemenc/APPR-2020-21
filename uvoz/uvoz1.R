@@ -12,6 +12,17 @@ letne.place <- uvozi.place %>%
   summarise(LETNA.PLACA=sum(NETO.MESECNA.PLACA)) %>%
   summarize(POVPRECNA.LETNA.PLACA = mean(LETNA.PLACA, na.rm=TRUE))
 
+#prva polovica regij
+vrstice1 <- grep('(Gorenjska)|(Goriška)|(Jugovzhodna Slovenija)|(Koroška)|(Obalno-kraška)|(	Osrednjeslovenska)',
+                 letne.place$STATISTICNA.REGIJA)                                                    
+letne.place1 <- letne.place[vrstice1,]
+#druga polovica regij
+vrstice2 <- grep('(	Podravska)|(Pomurska)|(Posavska)|(Primorsko-notranjska)|(Savinjska)|(	Zasavska)',
+                 letne.place$STATISTICNA.REGIJA)                                                    
+letne.place2 <- letne.place[vrstice2,]
+
+
+
 #povprečna plača v regiji
 place.regije <- letne.place %>%
   group_by(STATISTICNA.REGIJA) %>%
@@ -19,21 +30,43 @@ place.regije <- letne.place %>%
 
 #max in min povprecna letna placa v vsaki regiji za vsako dejavnost
 place.max <- letne.place %>%
-  group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST) %>%
+  group_by(STATISTICNA.REGIJA) %>%
   summarize(MAX.LETNA.PLACA = max(POVPRECNA.LETNA.PLACA, na.rm=TRUE))
+place.max$SKD.DEJAVNOST <- c('D OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO', 
+                             'D OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO' ,
+                             'D OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO',
+                             'D OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO', 
+                             'K FINANČNE IN ZAVAROVALNIŠKE DEJAVNOSTI', 
+                             'D OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO',
+                             'D OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO',
+                             'K FINANČNE IN ZAVAROVALNIŠKE DEJAVNOSTI',
+                             'D OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO',
+                             'K FINANČNE IN ZAVAROVALNIŠKE DEJAVNOSTI',
+                             'B RUDARSTVO',
+                             'B RUDARSTVO')
+
+
 
 place.min <- letne.place %>%
-  group_by(STATISTICNA.REGIJA, SKD.DEJAVNOST) %>%
+  group_by(STATISTICNA.REGIJA) %>%
   summarize(MIN.LETNA.PLACA = min(POVPRECNA.LETNA.PLACA, na.rm=TRUE))
+place.min$SKD.DEJAVNOST <- c('N DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI',
+                             'N DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI',
+                             'N DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI',
+                             'I GOSTINSTVO',
+                             'N DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI',
+                             'I GOSTINSTVO',
+                             'I GOSTINSTVO',
+                             'I GOSTINSTVO',
+                             'I GOSTINSTVO',
+                             'I GOSTINSTVO',
+                             'N DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI',
+                             'A KMETIJSTVO IN LOV, GOZDARSTVO, RIBIŠTVO')
 
-maxmin.place <- inner_join(place.max, place.min)
 
 
-#place na gorenjskem
-maxplace.gorenjska <- place.max %>% filter(STATISTICNA.REGIJA == 'Gorenjska') %>%
-  arrange(MAX.LETNA.PLACA)  
-  
-place.gorenjska <- uvozi.place %>%filter(STATISTICNA.REGIJA == 'Gorenjska')
+
+
 
 
 

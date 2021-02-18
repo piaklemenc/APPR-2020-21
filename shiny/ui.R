@@ -2,16 +2,16 @@ library(shiny)
 
 shinyUI(fluidPage(
   
-  titlePanel("Slovenske občine"),
+  titlePanel("naslov1"),
   
   tabsetPanel(
-      tabPanel("Velikost družine",
-               DT::dataTableOutput("druzine")),
-      
-      tabPanel("Število naselij",
-               sidebarPanel(
-                  uiOutput("pokrajine")
-                ),
-               mainPanel(plotOutput("naselja")))
-    )
-))
+    
+    tabPanel("naslov2",
+             sidebarPanel(
+               selectInput(inputId = "Regija",
+                           label = "Izberi regijo",
+                           choices = unique(letne.place$STATISTICNA.REGIJA))
+               
+             ),
+             mainPanel(plotOutput("panoge.v.regijah"))
+    ))))
