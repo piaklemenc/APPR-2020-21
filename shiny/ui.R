@@ -24,7 +24,20 @@ shinyUI(fluidPage(
                
              ),
              mainPanel(plotOutput("place.po.panogah"))
+             
+    ),
     
-    )
-  
+    
+    
+    tabPanel("mesečne plače",
+             sidebarPanel(
+               selectInput(inputId = "regija",
+                           label = "Izberi regijo",
+                           choices = unique(uvozi.place$STATISTICNA.REGIJA),
+                           dateInput('datum', 'Izberi mesec/leto',uvozi.place$NETO.MESECNA.PLACA ))
+               
+             ),
+             mainPanel(plotOutput("mesecne.place"))
+             )
+    
   )))
