@@ -1,11 +1,15 @@
 # 4. faza: Analiza podatkov
 
-podatki <- obcine %>% transmute(obcina, povrsina, gostota,
-                                gostota.naselij=naselja/povrsina) %>%
-  left_join(povprecja, by="obcina")
-row.names(podatki) <- podatki$obcina
-podatki$obcina <- NULL
+#NAPOVED RASTI NETO POVPREČNE PLAČE V SLOVENIJI
+#linearna regresija
 
-# Število skupin
-n <- 5
-skupine <- hclust(dist(scale(podatki))) %>% cutree(n)
+
+model <- lm(data=mesecne.place.slo, MESEC ~ POVPRECNA.MESECNA.PLACA.SLO)
+
+prihodnja.leta <- data.frame(MESEC = seq(2014,2022,1))
+
+napoved.slo <- mutate(prihodnja.leta, POVPRECNA.MESECNA.PLACA.SLO = predict(model,prihodnja.leta))
+
+napoved.graf <- ggplot(mesecne.place.slo, aes( x = MESEC, y = POVPRECNA.MESECNA.PLACA.SLO)) + geom_point() +
+  geom_smooth(method = 'lm', fullrange = TRUE, formula = y~x) + 
+  geom_point(data = napoved.slo, aes( x = MESEC, y = POVPRECNA.MESECNA.PLACA.SLO)) 
