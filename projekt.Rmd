@@ -27,9 +27,8 @@ source("lib/rstudio.r", encoding="UTF-8")
 
 V izbrani temi bom analizirala neto povprečne letne plače v Sloveniji v letih 2014 do 2019. Prikazala bom, kako se je višina plač spreminjala skozi leta v vsaki regiji za posamezno dejavnost. 
 
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
 
-![](slike/grb.png)
+![](slike/denar.jpg)
 
 ***
 
