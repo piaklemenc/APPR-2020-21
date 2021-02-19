@@ -36,7 +36,7 @@ Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
 # Obdelava, uvoz in čiščenje podatkov
 
 ```{r uvoz}
-source("uvoz/uvoz.r", encoding="UTF-8")
+source("uvoz/uvoz1.r", encoding="UTF-8")
 ```
 
 Uvozila sem podatke o višini plač v vsakem mesecu od leta 2014 do 2019 za različne panoge v vseh slovenskih regijah v obliki CSV s statističnega urada. Podatke imam v eni razpredelnici v obliki *tidy data*.
@@ -47,14 +47,8 @@ Uvozila sem podatke o višini plač v vsakem mesecu od leta 2014 do 2019 za razl
   - `NETO.MESECNA.PLACA` - meritev: višina neto mesečne plače po regijah za vsako panogo
 
 
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
+**Opomba**: da je razpredelnica `uvozi.place` res bila v obliki *tidy data*, sem znake 'n','z','-','/','-Inf', 'Inf' nastavila na prazne vrednosti.
 
-Spodnji graf prikazuje porazdelitev števila naselij v občinah.
-
-```{r histogram, fig.align='center', fig.cap='Histogram števila naselij v občinah'}
-ggplot(obcine, aes(x=naselja)) + geom_histogram() +
-  ggtitle("Pogostost števila naselij") + xlab("Število naselij") + ylab("Število občin")
-```
 
 ***
 
@@ -66,20 +60,8 @@ Pred analizo podatkov sem si zastavila naslednja vprašanja: \
 - Kolikšne so plač pri posameznih panogo glede na regijo \
 - Kakšna je povprečna letna plača v posamezni regiji
 
-```{r analiza}
-source("analiza/analiza.r", encoding="UTF-8")
-```
-
-Spodnji graf prikazuje povezavo med številom naselij in površino občine.
-
-```{r graf, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'}
-ggplot(inner_join(obcine, data.frame(obcina=names(skupine),
-                                     skupina=factor(skupine)), by="obcina")
-, aes(x=povrsina, y=naselja, color=skupina, size=prebivalci/1000)) + geom_point() +
-  ggtitle("Število naselij glede na površino občine") +
-  xlab(expression("Površina (km"^2 * ")")) + ylab("Št. naselij") +
-  guides(color=guide_legend(title="Skupina"),
-         size=guide_legend(title="Prebivalci (* 1000)"))
+```{r vizualizacija, results='hide'}
+source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
 Spodnja grafa prikazujeta, katera panoga v regiji dosega najvišjo in najnižjo neto povprečno letno plačo.
@@ -94,6 +76,9 @@ min.place.v.regiji
 Opazimo, da ima panoga D - OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO v več kot polovici regij največjo povprečno leto plačo, panoga I - GOSTINSTVO pa najmanjšo. 
 
 Tretji graf pa nam za vsako panogo lepo prikazuje, kako velike so plače glede na ostale regije v tej panogi. 
+```{r graf3, fig.align='center', echo = FALSE}
+g3
+```
 
 
 Na zemljevidu pa si lahko pogledamo, v kateri regijo imamo povprečno največjo plačo.
@@ -102,6 +87,7 @@ Na zemljevidu pa si lahko pogledamo, v kateri regijo imamo povprečno največjo 
 slo
 ```
 Opazimo, da se plače med regijami na letni ravni razlikujejo za največ 2000€. Največje povprečje imamo v osrednjeslovenski regiji, najmanjše pa v zasavski.
+
 ***
 
 ## Napredna analiza podatkov

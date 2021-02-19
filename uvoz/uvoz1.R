@@ -63,6 +63,14 @@ place.min$SKD.DEJAVNOST <- c('N DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI',
                              'N DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI',
                              'A KMETIJSTVO IN LOV, GOZDARSTVO, RIBIŠTVO')
 
+#povprečne mesečne plače v Sloveniji
+
+mesecne.place.slo <- uvozi.place %>%
+  group_by(STATISTICNA.REGIJA, MESEC) %>%
+  summarise(POVPRECNA.MESECNA.PLACA.REGIJA = mean(NETO.MESECNA.PLACA, na.rm=TRUE)) %>%
+  group_by(MESEC) %>%
+  summarise(POVPRECNA.MESECNA.PLACA.SLO = mean(POVPRECNA.MESECNA.PLACA.REGIJA, na.rm=TRUE))
+
 
 
 
