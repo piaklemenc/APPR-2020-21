@@ -2,16 +2,29 @@ library(shiny)
 
 shinyUI(fluidPage(
   
-  titlePanel("naslov1"),
+  titlePanel("Neto povprečne letne plače v regijah in po panogah"),
   
   tabsetPanel(
     
-    tabPanel("naslov2",
+    tabPanel("Povprečne letne plače po regijah",
              sidebarPanel(
                selectInput(inputId = "Regija",
                            label = "Izberi regijo",
                            choices = unique(letne.place$STATISTICNA.REGIJA))
                
              ),
-             mainPanel(plotOutput("panoge.v.regijah"))
-    ))))
+             mainPanel(plotOutput("place.v.regijah"))
+    ),
+    
+    tabPanel("Povprečne letne plače po panogah",
+             sidebarPanel(
+               selectInput(inputId = "Panoga",
+                           label = "Izberi panogo",
+                           choices = unique(letne.place$SKD.DEJAVNOST))
+               
+             ),
+             mainPanel(plotOutput("place.po.panogah"))
+    
+    )
+  
+  )))
