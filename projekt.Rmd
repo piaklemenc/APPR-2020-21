@@ -25,7 +25,7 @@ source("lib/rstudio.r", encoding="UTF-8")
 # Izbira teme
 # Analiza mesečnih plač v Sloveniji po panogah in regijah
 
-V izbrani temi bom analizirala neto mesečne plače in neto letne plače v Sloveniji v letih 2014 do 2019. Prikazala bom, kako se je višina plač spreminjala skozi leta v vsaki regiji za posamezno dejavnost. 
+V izbrani temi bom analizirala neto povprečne letne plače v Sloveniji v letih 2014 do 2019. Prikazala bom, kako se je višina plač spreminjala skozi leta v vsaki regiji za posamezno dejavnost. 
 
 Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
 
@@ -60,21 +60,11 @@ ggplot(obcine, aes(x=naselja)) + geom_histogram() +
 
 # Analiza in vizualizacija podatkov
 
-```{r vizualizacija, results='hide'}
-source("vizualizacija/vizualizacija.r", encoding="UTF-8")
-```
-
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
-
-```{r zemljevid, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-tm_shape(merge(zemljevid, povprecja, by.x="OB_UIME", by.y="obcina")) +
-  tm_polygons("povprecje", title="Povprečje") +
-  tm_layout(title="Povprečno število otrok v družini")
-```
-
-***
-
-# Napredna analiza podatkov
+Pred analizo podatkov sem si zastavila naslednja vprašanja: \
+- Kolikšne so maksimalne in minimalne neto povprečne letne plače v vsaki regiji in kateri panogi pripadajo \
+- Kolikšne so plače v posameznih regijah glede na panoge  \
+- Kolikšne so plač pri posameznih panogo glede na regijo \
+- Kakšna je povprečna letna plača v posamezni regiji
 
 ```{r analiza}
 source("analiza/analiza.r", encoding="UTF-8")
@@ -92,7 +82,48 @@ ggplot(inner_join(obcine, data.frame(obcina=names(skupine),
          size=guide_legend(title="Prebivalci (* 1000)"))
 ```
 
+Spodnja grafa prikazujeta, katera panoga v regiji dosega najvišjo in najnižjo neto povprečno letno plačo.
+
+```{r graf1, fig.align='center', echo = FALSE}
+max.place.v.regiji 
+```
+
+```{r graf2, fig.align='center', echo = FALSE}
+min.place.v.regiji
+```
+Opazimo, da ima panoga D - OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO v več kot polovici regij največjo povprečno leto plačo, panoga I - GOSTINSTVO pa najmanjšo. 
+
+Tretji graf pa nam za vsako panogo lepo prikazuje, kako velike so plače glede na ostale regije v tej panogi. 
+
+
+Na zemljevidu pa si lahko pogledamo, v kateri regijo imamo povprečno največjo plačo.
+
+```{r zemljevid, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+slo
+```
+Opazimo, da se plače med regijami na letni ravni razlikujejo za največ 2000€. Največje povprečje imamo v osrednjeslovenski regiji, najmanjše pa v zasavski.
 ***
+
+## Napredna analiza podatkov
+
+```{r analiza}
+source("analiza/analiza.r", encoding="UTF-8")
+```
+V tej fazi me je zanimalo, kakšna je predvidena količina kmetijskih pridelkov in število živine v prihodnosti. Naredila sem napoved do leta 2025.
+v naslednjem grafu črne pike prikazujejo dejanske količine pridelkov v Sloveniji, rdeče pa napoved količin, na podlagi danih podatkov.
+```{r graf7, echo=FALSE, fig.align='center'}
+graf_napoved1
+```
+Naslednji graf prikazuje napoved živine v prihodnjih letih do 2025. Črne pike prav tako prikazujejo dejanske podatke o živini, rdeče pa napoved.
+```{r graf8, echo=FALSE, fig.align='center'}
+graf_napoved2
+```
+
+
+
+***
+
+
 
 ```{r shiny}
 shinyAppDir("shiny", options=list(width="100%", height=600))
