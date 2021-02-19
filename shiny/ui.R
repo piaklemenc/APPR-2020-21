@@ -33,8 +33,12 @@ shinyUI(fluidPage(
              sidebarPanel(
                selectInput(inputId = "regija",
                            label = "Izberi regijo",
-                           choices = unique(uvozi.place$STATISTICNA.REGIJA),
-                           dateInput('datum', 'Izberi leto' ))
+                           choices = unique(uvozi.place$STATISTICNA.REGIJA)
+                           ),
+               selectInput(inputId = "datum",
+                           label = "Izberi leto in mesec",
+                           choices = unique(uvozi.place$MESEC),
+               )
                
              ),
              mainPanel(plotOutput("mesecne.place"))

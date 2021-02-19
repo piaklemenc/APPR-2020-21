@@ -39,7 +39,7 @@ shinyServer(function(input, output,session) {
   
   output$mesecne.place <- renderPlot(
     
-    uvozi.place %>% filter(STATISTICNA.REGIJA == input$Regija) 
+    uvozi.place %>% filter(STATISTICNA.REGIJA == input$regija, MESEC == input$datum) 
     
     %>% ggplot(aes(x = NETO.MESECNA.PLACA, y = substr(SKD.DEJAVNOST,1,1))) + geom_col() + 
       ylab('Panoga')+
@@ -47,7 +47,7 @@ shinyServer(function(input, output,session) {
       coord_flip()+
       theme(plot.title = element_text(hjust = 0.5)) + 
       
-      ggtitle(paste(' v regiji-', input$Regija, 'za vsako panogo, pa še en input za leto')),
+      ggtitle(paste(' Mesečne plače v regiji-', input$regija, 'za vsako panogo v letu-mesecu', input$datum)),
     
     height = 400, width = 500
     
