@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(fluidPage(
   
-  titlePanel("Neto povprečne letne plače v regijah in po panogah"),
+  titlePanel("Neto plače v slovenskih regijah"),
   
   tabsetPanel(
     

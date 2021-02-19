@@ -4,56 +4,40 @@ library(shiny)
 shinyServer(function(input, output,session) {
   
   output$place.v.regijah <- renderPlot(
-    
-    letne.place %>% filter(STATISTICNA.REGIJA == input$Regija) 
-    
-    %>% ggplot(aes(x = POVPRECNA.LETNA.PLACA, y = substr(SKD.DEJAVNOST,1,1))) + geom_col() + 
-      ylab('Panoga')+
-      xlab('Plača')+
-      coord_flip()+
-      theme(plot.title = element_text(hjust = 0.5)) + 
-      
+    letne.place %>% filter(STATISTICNA.REGIJA == input$Regija) %>% ggplot(aes(y = POVPRECNA.LETNA.PLACA, x = SKD.DEJAVNOST)) + geom_col() + 
+      theme(plot.title = element_text(hjust = 0.5)) +
+      aes(str_wrap(SKD.DEJAVNOST, 30), POVPRECNA.LETNA.PLACA) +   coord_flip()+
+      ylab('Plača')+
+      xlab('Panoga')+
       ggtitle(paste('Neto povprečna letna plača v regiji -', input$Regija, 'za vsako panogo')),
-    
-    height = 400, width = 500
-    
+    height = 700, width = 800
   )
   
   
   output$place.po.panogah <- renderPlot(
-    
     letne.place %>% filter(SKD.DEJAVNOST == input$Panoga) 
-    
     %>% ggplot(aes(x = POVPRECNA.LETNA.PLACA, y = STATISTICNA.REGIJA)) + geom_col() + 
-      ylab('Regija')+
-      xlab('Plača')+
+      aes(str_wrap(STATISTICNA.REGIJA, 30), POVPRECNA.LETNA.PLACA) + 
+      xlab('Regija')+
+      ylab('Plača')+
       coord_flip()+
       theme(plot.title = element_text(hjust = 0.5)) + 
-      theme(axis.text.x = element_text(size = 6, angle = 45, vjust = 0.5, hjust=1))+
-      
       ggtitle(paste('Neto povprečna letna plača za panogo -', input$Panoga, 'v posamezni regiji')),
-    
-    height = 400, width = 500
-    
+    height = 700, width = 800
   )
+  
   
   output$mesecne.place <- renderPlot(
-    
     uvozi.place %>% filter(STATISTICNA.REGIJA == input$regija, MESEC == input$datum) 
-    
-    %>% ggplot(aes(x = NETO.MESECNA.PLACA, y = substr(SKD.DEJAVNOST,1,1))) + geom_col() + 
-      ylab('Panoga')+
-      xlab('Plača')+
+    %>% ggplot(aes(x = NETO.MESECNA.PLACA, y = SKD.DEJAVNOST)) + geom_col() + 
+      aes(str_wrap(SKD.DEJAVNOST, 30), NETO.MESECNA.PLACA) + 
+      xlab('Panoga')+
+      ylab('Plača')+
       coord_flip()+
       theme(plot.title = element_text(hjust = 0.5)) + 
-      
-      ggtitle(paste(' Mesečne plače v regiji-', input$regija, 'za vsako panogo v letu-mesecu', input$datum)),
-    
-    height = 400, width = 500
-    
+      ggtitle(paste(' Mesečne plače v regiji - ', input$regija, 'za vsako panogo v letu-mesecu', input$datum)),
+    height = 700, width = 800
   )
-  
-  
-  
+
 
 })
