@@ -14,11 +14,12 @@ slo <- tm_shape(merge(slo1, place.regije,  by.x="NAME_1", by.y="STATISTICNA.REGI
 #grafi
 
 #katera panoga v regiji ima maksimalno povprecno letno placo
-max.place.v.regiji <- ggplot(place.max, legend.title='Panoga') + aes(x=STATISTICNA.REGIJA, y=MAX.LETNA.PLACA,fill=SKD.DEJAVNOST) + geom_col() +
+max.place.v.regiji <- ggplot(place.max) + aes(x=STATISTICNA.REGIJA, y=MAX.LETNA.PLACA,fill=SKD.DEJAVNOST) + geom_col() +
   xlab("Regija") + theme(axis.text.x = element_text(size = 6, angle = 90, vjust = 0.5, hjust=1)) +
   ggtitle('Maksimalne plače v regijah') +
   ylab('Plača')+
-  theme(legend.title=element_text(size=8), legend.text=element_text(size=7), legend.key.size = unit(0.5, 'cm'))
+  theme(legend.title=element_text(size=8), legend.text=element_text(size=7), legend.key.size = unit(0.5, 'cm')) +
+  scale_fill_discrete(name = "Panoga")
                     
 
 #katera panoga v regiji ima minimalno povprecno letno placo
@@ -26,14 +27,17 @@ min.place.v.regiji <- ggplot(place.min) + aes(x=STATISTICNA.REGIJA, y=MIN.LETNA.
   xlab("Regija") + theme(axis.text.x = element_text(size = 6, angle = 90, vjust = 0.5, hjust=1)) +
   ggtitle('Minimalne plače v regijah') +
   ylab('Plača')+
-  theme(legend.title=element_text(size=8), legend.text=element_text(size=7), legend.key.size = unit(0.5, 'cm'))
+  theme(legend.title=element_text(size=8), legend.text=element_text(size=7), legend.key.size = unit(0.5, 'cm'))+
+  scale_fill_discrete(name = "Panoga")
 
 
 #vsota povprečnih plač regij za vsako dejavnost - koliko vsaka regija 'prispeva' k neki dejavnosti - koliko je posamezna dejavnost razvita v vsaki regiji
 #=g5
 g3 <- ggplot(letne.place) + aes(x=substr(SKD.DEJAVNOST, 1,1) , y=POVPRECNA.LETNA.PLACA, fill=STATISTICNA.REGIJA) +
   geom_col(col = 'black') +
-  xlab("Dejavnost")
+  xlab("Dejavnost") +
+  ylab('Seštevek plač') +
+  scale_fill_discrete(name = "Regija")
 
 #višina plač v regijah za vsako panogo - koliko je vsaka od panog razvita v posamezni regiji SHINY
 g41 <- ggplot(letne.place1) + aes(x=STATISTICNA.REGIJA, y=POVPRECNA.LETNA.PLACA, fill=SKD.DEJAVNOST) +

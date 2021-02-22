@@ -22,10 +22,9 @@ source("lib/libraries.r", encoding="UTF-8")
 source("lib/rstudio.r", encoding="UTF-8")
 ```
 
-# Izbira teme
 # Analiza mesečnih plač v Sloveniji po panogah in regijah
 
-V izbrani temi bom analizirala neto povprečne letne plače v Sloveniji v letih 2014 do 2019. Prikazala bom, kako se je višina plač spreminjala skozi leta v vsaki regiji za posamezno dejavnost. 
+V izbrani temi bom analizirala neto povprečne letne plače v Sloveniji in mesečne plače v letih 2014 do 2019. Prikazala bom, kako se je višina plač spreminjala skozi leta v vsaki regiji za posamezno dejavnost. 
 
 
 ![](slike/denar.jpg)
@@ -74,7 +73,7 @@ min.place.v.regiji
 ```
 Opazimo, da ima panoga D - OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO v več kot polovici regij največjo povprečno leto plačo, panoga I - GOSTINSTVO pa najmanjšo. 
 
-Tretji graf pa nam za vsako panogo lepo prikazuje, kako velike so plače glede na ostale regije v tej panogi. 
+Tretji graf pa nam za vsako panogo lepo prikazuje, kako visoke so plače glede na ostale regije. 
 ```{r graf3, fig.align='center', echo = FALSE}
 g3
 ```
