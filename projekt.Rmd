@@ -79,7 +79,7 @@ g3
 ```
 
 
-Na zemljevidu pa si lahko pogledamo, v kateri regijo imamo povprečno največjo plačo.
+Na zemljevidu si lahko pogledamo, v kateri regijo imamo povprečno največjo plačo.
 
 ```{r zemljevid, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 slo
