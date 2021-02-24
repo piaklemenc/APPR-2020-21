@@ -9,7 +9,9 @@ place.regije$STATISTICNA.REGIJA[9] <- "Spodnjeposavska"
 tmap_mode("view" )
 slo1 <- uvozi.zemljevid("https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_SVN_shp.zip", "gadm36_SVN_1", encoding="UTF-8")
 slo <- tm_shape(merge(slo1, place.regije,  by.x="NAME_1", by.y="STATISTICNA.REGIJA")) + tm_polygons("POVPRECNA.PLACA", title = "Povprečna plača (€)") + 
-  tm_text('NAME_1', size = 0.8)+ tm_view(text.size.variable = TRUE, view.legend.position = c("right", "bottom"))
+  tm_text('NAME_1', size = 0.8)+ tm_view(text.size.variable = TRUE, view.legend.position = c("right", "bottom")) +
+  tm_layout(title="Povprečna letna plača v vsaki regiji")
+
 
 
 #grafi

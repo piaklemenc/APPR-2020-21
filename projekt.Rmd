@@ -39,7 +39,7 @@ source("uvoz/uvoz1.r", encoding="UTF-8")
 
 Uvozila sem podatke o višini plač v vsakem mesecu od leta 2014 do 2019 za različne panoge v vseh slovenskih regijah v obliki CSV s statističnega urada. Podatke imam v eni razpredelnici v obliki *tidy data*.
 
-1. `SKD.DEJAVNOST` - različne vrste panog
+1.-`SKD.DEJAVNOST` - različne vrste panog
   - `STATISTICNA.REGIJA` - spremenljivka: ime regije
   - `MESEC` - spremenljivka: vsak mesec v letih 2014 do 2019
   - `NETO.MESECNA.PLACA` - meritev: višina neto mesečne plače po regijah za vsako panogo
@@ -101,7 +101,7 @@ Za konec sem naredila še napoved mesečnih januarskih plač do leta 2025, kar n
 ```{r graf4, echo=FALSE, fig.align='center'}
 napoved.graf
 ```
-
+Črne pikice prikazujejo višino plač do leta 2019, rdeče pikice pa so napoved od leta 2019 do 2025.
 ***
 
 

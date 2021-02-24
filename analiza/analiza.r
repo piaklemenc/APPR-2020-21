@@ -22,6 +22,7 @@ napoved.graf <- ggplot(mesecne.place.slo, aes( x = MESEC, y = POVPRECNA.MESECNA.
   
   geom_smooth(method = 'lm', fullrange = TRUE, formula = y~x) + 
   
-  geom_point(data = napoved.slo, aes( x = MESEC, y = POVPRECNA.MESECNA.PLACA.SLO)) +
-  xlab("Leto") + ylab("Mesečna plača (€)")
+  geom_point(data = napoved.slo, aes( x = MESEC, y = POVPRECNA.MESECNA.PLACA.SLO),color='red') +
+  xlab("Leto") + ylab("Mesečna plača (€)") + ggtitle('Napoved mesečnih januarskih plač')
+
 
