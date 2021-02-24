@@ -57,10 +57,13 @@ Pred analizo podatkov sem si zastavila naslednja vprašanja: \
 - Kolikšne so plače v posameznih regijah glede na panoge  \
 - Kolikšne so plač pri posameznih panogo glede na regijo \
 - Kakšna je povprečna letna plača v posamezni regiji
+- Kako se je spreminjala višina mesečne plače in
+- Kako na podlagi dosedanjih podatkov lahko napovemo prihodnje mesečne plače
 
 ```{r vizualizacija, results='hide'}
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
+
 
 Spodnja grafa prikazujeta, katera panoga v regiji dosega najvišjo in najnižjo neto povprečno letno plačo.
 
@@ -71,13 +74,13 @@ max.place.v.regiji
 ```{r graf2, fig.align='center', echo = FALSE}
 min.place.v.regiji
 ```
-Opazimo, da ima panoga D - OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO v več kot polovici regij največjo povprečno leto plačo, panoga I - GOSTINSTVO pa najmanjšo. 
+Opazimo, da ima panoga D - OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO v več kot polovici regij največjo povprečno letno plačo, panoga I - GOSTINSTVO pa najmanjšo. 
 
-Tretji graf pa nam za vsako panogo lepo prikazuje, kako visoke so plače glede na ostale regije. 
+Podobno nam prikazuje tretji graf. Za vsako panogo vidimo, kako visoke so plače glede na ostale regije. Višina posameznega stolpca predstavlja vsoto plač po vseh regijah za eno panogo.
 ```{r graf3, fig.align='center', echo = FALSE}
 g3
 ```
-
+Opazimo, da so v panogah D-OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO in K-FINANČNE IN ZAVAROVALNIŠKE DEJAVNOSTI najvišje plače, v panogah I-GOSTINSTVO in N-DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI pa najnižje.
 
 Na zemljevidu si lahko pogledamo, v kateri regijo imamo povprečno največjo plačo.
 
@@ -93,17 +96,10 @@ Opazimo, da se plače med regijami na letni ravni razlikujejo za največ 2000€
 ```{r analiza}
 source("analiza/analiza.r", encoding="UTF-8")
 ```
-V tej fazi me je zanimalo, kakšna je predvidena količina kmetijskih pridelkov in število živine v prihodnosti. Naredila sem napoved do leta 2025.
-v naslednjem grafu črne pike prikazujejo dejanske količine pridelkov v Sloveniji, rdeče pa napoved količin, na podlagi danih podatkov.
-```{r graf7, echo=FALSE, fig.align='center'}
-graf_napoved1
+Za konec sem naredila še napoved mesečnih januarskih plač do leta 2025, kar nam prikazuje spodnji graf. 
+```{r graf4, echo=FALSE, fig.align='center'}
+napoved.graf
 ```
-Naslednji graf prikazuje napoved živine v prihodnjih letih do 2025. Črne pike prav tako prikazujejo dejanske podatke o živini, rdeče pa napoved.
-```{r graf8, echo=FALSE, fig.align='center'}
-graf_napoved2
-```
-
-
 
 ***
 
