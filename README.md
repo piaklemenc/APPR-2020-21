@@ -8,12 +8,8 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2020/21
 
 ## Tematika
 
-Poiskala sem podatke o  mesečnih plačah po SKD dejavnostih v Sloveniji po regijah od leta 2014 do 2019. Primerjala bom mesečne plače v približno dvajsetih različnih panogah.
-Analizirala bom naslednja vprašanja::
-- Kolikšna je letna plača posamezne panoge v posamezni regiji?
-- Pri katerih panogah in v katerih regijah so letne plače najvišje in pri katerih najnižje?
-- Kako se plače spreminjajo z leti?
-...
+Poiskala sem podatke o  mesečnih plačah po SKD dejavnostih v Sloveniji po regijah od leta 2014 do 2019. Primerjala in analizirala bom povprečne letne in mesečne plače v približno dvajsetih različnih panogah.
+
 
 Tabela 1: Vir (SURS): https://pxweb.stat.si/SiStat/sl/Podrocja/Index/98/place-in-stroski-dela
 

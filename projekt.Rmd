@@ -24,7 +24,7 @@ source("lib/rstudio.r", encoding="UTF-8")
 
 # Analiza mesečnih plač v Sloveniji po panogah in regijah
 
-V izbrani temi bom analizirala neto povprečne letne plače v Sloveniji in mesečne plače v letih 2014 do 2019. Prikazala bom, kako se je višina plač spreminjala skozi leta v vsaki regiji za posamezno dejavnost. 
+V izbrani temi bom analizirala neto povprečne letne plače v Sloveniji in mesečne plače v letih od 2014 do 2019. Prikazala bom, kako se je višina plač spreminjala skozi leta v vsaki regiji za posamezno dejavnost/panogo. 
 
 
 ![](slike/denar.jpg)
@@ -45,20 +45,20 @@ Uvozila sem podatke o višini plač v vsakem mesecu od leta 2014 do 2019 za razl
   - `NETO.MESECNA.PLACA` - meritev: višina neto mesečne plače po regijah za vsako panogo
 
 
-**Opomba**: da je razpredelnica `uvozi.place` res bila v obliki *tidy data*, sem znake 'n','z','-','/','-Inf', 'Inf' nastavila na prazne vrednosti.
+**Opomba**: da je razpredelnica `uvozi.place` res v obliki *tidy data*, sem znake 'n','z','-','/','-Inf', 'Inf' nastavila na prazne vrednosti.
 
 
 ***
 
 # Analiza in vizualizacija podatkov
 
-Pred analizo podatkov sem si zastavila naslednja vprašanja: \
+Pred analizo podatkov so me zanimala naslednja vprašanja: \
 - Kolikšne so maksimalne in minimalne neto povprečne letne plače v vsaki regiji in kateri panogi pripadajo \
 - Kolikšne so plače v posameznih regijah glede na panoge  \
-- Kolikšne so plač pri posameznih panogo glede na regijo \
-- Kakšna je povprečna letna plača v posamezni regiji
-- Kako se je spreminjala višina mesečne plače in
-- Kako na podlagi dosedanjih podatkov lahko napovemo prihodnje mesečne plače
+- Kolikšne so plače pri posameznih panogah glede na regijo \
+- Kakšna je povprečna letna plača v posamezni regiji \
+- Kako se je spreminjala višina mesečne plače in \
+- Kakšne plače lahko napovemo na podlagi dosedanjih podatkov
 
 ```{r vizualizacija, results='hide'}
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
@@ -82,12 +82,12 @@ g3
 ```
 Opazimo, da so v panogah D-OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO in K-FINANČNE IN ZAVAROVALNIŠKE DEJAVNOSTI najvišje plače, v panogah I-GOSTINSTVO in N-DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI pa najnižje.
 
-Na zemljevidu si lahko pogledamo, v kateri regijo imamo povprečno največjo plačo.
+Na zemljevidu si lahko pogledamo, v kateri regiji imamo največjo povprečno letno plačo.
 
 ```{r zemljevid, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 slo
 ```
-Opazimo, da se plače med regijami na letni ravni razlikujejo za največ 2000€. Največje povprečje imamo v osrednjeslovenski regiji, najmanjše pa v zasavski.
+Opazimo, da se plače med regijami na letni ravni razlikujejo za največ 2000€. Največje povprečne plače imamo v osrednjeslovenski regiji, najmanjše pa v zasavski.
 
 ***
 
@@ -96,13 +96,13 @@ Opazimo, da se plače med regijami na letni ravni razlikujejo za največ 2000€
 ```{r analiza}
 source("analiza/analiza.r", encoding="UTF-8")
 ```
+
 Za konec sem naredila še napoved mesečnih januarskih plač do leta 2025, kar nam prikazuje spodnji graf. 
 ```{r graf4, echo=FALSE, fig.align='center'}
 napoved.graf
 ```
 
 ***
-
 
 
 ```{r shiny}

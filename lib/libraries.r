@@ -1,11 +1,7 @@
-library(knitr)
+
+
 library(rvest)
 library(gsubfn)
-library(tidyr)
-library(tmap)
-library(shiny)
-
-#pobriši duplikate!
 library(dplyr)
 library(DT)
 library(digest)
