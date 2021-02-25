@@ -9,8 +9,8 @@ shinyServer(function(input, output,session) {
       aes(str_wrap(SKD.DEJAVNOST, 30), POVPRECNA.LETNA.PLACA) +   coord_flip()+
       ylab('Plača')+
       xlab('Panoga')+
-      ggtitle(paste('Neto povprečna letna plača v regiji -', input$Regija, 'za vsako panogo')),
-    height = 700, width = 600
+      ggtitle(paste('Neto povprečna letna plača v regiji -', input$Regija, '\n za vsako panogo')),
+    height = 700, width = 580
   )
   
   
@@ -22,8 +22,8 @@ shinyServer(function(input, output,session) {
       ylab('Plača')+
       coord_flip()+
       theme(plot.title = element_text(hjust = 0.5)) + 
-      ggtitle(paste('Neto povprečna letna plača za panogo -', input$Panoga, 'v posamezni regiji')),
-    height = 700, width = 600
+      ggtitle(paste('Neto povprečna letna plača za panogo - \n', input$Panoga,'\n v posamezni regiji')),
+    height = 700, width = 580
   )
   
   
@@ -35,8 +35,8 @@ shinyServer(function(input, output,session) {
       ylab('Plača')+
       coord_flip()+
       theme(plot.title = element_text(hjust = 0.5)) + 
-      ggtitle(paste(' Mesečne plače v regiji - ', input$regija, 'za vsako panogo v letu-mesecu', input$datum)),
-    height = 700, width = 600
+      ggtitle(paste(' Mesečne plače v regiji - ', input$regija, '\n za vsako panogo v letu-mesecu', input$datum)),
+    height = 700, width =580
   )
 
 
