@@ -110,6 +110,6 @@ napoved.graf
 
 
 ```{r shiny}
-shinyAppDir("shiny", options=list(width='180%', height=900))
+shinyAppDir("shiny", options=list(width='140%', height=900))
 
 ```
