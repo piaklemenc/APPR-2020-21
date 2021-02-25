@@ -34,7 +34,7 @@ V izbrani temi bom analizirala neto povprečne letne plače v Sloveniji in mese�
 # Obdelava, uvoz in čiščenje podatkov
 
 ```{r uvoz}
-source("uvoz/uvoz1.r", encoding="UTF-8")
+source("uvoz/uvoz1.R", encoding="UTF-8")
 ```
 
 Uvozila sem podatke o višini plač v vsakem mesecu od leta 2014 do 2019 za različne panoge v vseh slovenskih regijah v obliki CSV s statističnega urada. Podatke imam v eni razpredelnici v obliki *tidy data*.
@@ -80,6 +80,8 @@ Podobno nam prikazuje tretji graf. Za vsako panogo vidimo, kako visoke so plače
 ```{r graf3, fig.align='center', echo = FALSE}
 g3
 ```
+Legendo za panoge na x-osi lahko najdemo v aplikaciji Shiny.
+
 Opazimo, da so v panogah D-OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO in K-FINANČNE IN ZAVAROVALNIŠKE DEJAVNOSTI najvišje plače, v panogah I-GOSTINSTVO in N-DRUGE RAZNOVRSTNE POSLOVNE DEJAVNOSTI pa najnižje.
 
 Na zemljevidu si lahko pogledamo, v kateri regiji imamo največjo povprečno letno plačo.
@@ -108,5 +110,6 @@ napoved.graf
 
 
 ```{r shiny}
-shinyAppDir("shiny", options=list(width="100%", height=600))
+shinyAppDir("shiny", options=list(width="100%", height=900))
+
 ```

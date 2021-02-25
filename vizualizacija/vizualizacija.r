@@ -34,8 +34,7 @@ min.place.v.regiji <- ggplot(place.min) + aes(x=STATISTICNA.REGIJA, y=MIN.LETNA.
   scale_fill_discrete(name = "Panoga")
 
 
-#vsota povprečnih plač regij za vsako dejavnost - koliko vsaka regija 'prispeva' k neki dejavnosti - koliko je posamezna dejavnost razvita v vsaki regiji
-#=g5
+#vsota povprečnih plač regij za vsako dejavnost - koliko vsaka regija 'prispeva' k neki dejavnosti 
 g3 <- ggplot(letne.place) + aes(x=substr(SKD.DEJAVNOST, 1,1) , y=POVPRECNA.LETNA.PLACA, fill=STATISTICNA.REGIJA) +
   geom_col(col = 'black') +
   xlab("Dejavnost") +
